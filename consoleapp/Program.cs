@@ -12,7 +12,7 @@ var openAIAPIKey = Config.Get("OpenAIAPIKey");
 var builder = Kernel.CreateBuilder();
 
 builder.AddOpenAIChatCompletion(model, openAIAPIKey);
-builder.Services.AddLogging(services => services.AddConsole().SetMinimumLevel(LogLevel.None));
+builder.Services.AddLogging(services => services.AddConsole().SetMinimumLevel(LogLevel.Information));
 
 var kernel = builder.Build();
 
