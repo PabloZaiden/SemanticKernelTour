@@ -22,6 +22,7 @@ var kernel = builder.Build();
 var chatService = kernel.GetRequiredService<IChatCompletionService>();
 var openAIPromptExecutionSettings = new OpenAIPromptExecutionSettings() {
     ToolCallBehavior = ToolCallBehavior.AutoInvokeKernelFunctions,
+    Temperature = 0
 };
 
 AddPluginsToKernel(kernel);
@@ -49,15 +50,16 @@ do {
 
 void AddPluginsToKernel(Kernel kernel)
 {
-    kernel.Plugins.AddFromType<UserContextData>();
-    kernel.Plugins.AddFromType<Weather>();
-    kernel.Plugins.AddFromType<WebBrowser>();
+    // kernel.Plugins.AddFromType<UserContextData>();
+    // kernel.Plugins.AddFromType<Weather>();
+    // kernel.Plugins.AddFromType<WebBrowser>();
 
-    var bingAPIKey = Config.Get("BingAPIKey");
-    var bingConnector = new BingConnector(bingAPIKey);
-    var webSearchPlugin = new WebSearchEnginePlugin(bingConnector);
-    kernel.Plugins.AddFromObject(webSearchPlugin, "WebSearch");
+    // var bingAPIKey = Config.Get("BingAPIKey");
+    // var bingConnector = new BingConnector(bingAPIKey);
+    // var webSearchPlugin = new WebSearchEnginePlugin(bingConnector);
+    // kernel.Plugins.AddFromObject(webSearchPlugin, "WebSearch");
 
-    var wolframAlphaPlugin = new WolframAlpha(kernel);
-    kernel.Plugins.AddFromObject(wolframAlphaPlugin, "WolframAlpha");
+    // var wolframAlphaPlugin = new WolframAlpha(kernel);
+    // kernel.Plugins.AddFromObject(wolframAlphaPlugin, "WolframAlpha");
+    //kernel.Plugins.AddFromType<StringUtilities>();
 }
