@@ -61,5 +61,5 @@ void AddPluginsToKernel(Kernel kernel)
 
     // var wolframAlphaPlugin = new WolframAlpha(kernel);
     // kernel.Plugins.AddFromObject(wolframAlphaPlugin, "WolframAlpha");
-    //kernel.Plugins.AddFromType<StringUtilities>();
+    kernel.Plugins.AddFromType<StringUtilities>();
 }
