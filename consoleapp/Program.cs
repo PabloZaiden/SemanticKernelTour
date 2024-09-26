@@ -15,7 +15,7 @@ var openAIAPIKey = Config.Get("OpenAIAPIKey");
 var builder = Kernel.CreateBuilder();
 
 builder.AddOpenAIChatCompletion(model, openAIAPIKey);
-builder.Services.AddLogging(services => services.AddConsole().SetMinimumLevel(LogLevel.Information));
+builder.Services.AddLogging(services => services.AddConsole().SetMinimumLevel(LogLevel.Trace));
 
 var kernel = builder.Build();
 
@@ -26,6 +26,7 @@ var openAIPromptExecutionSettings = new OpenAIPromptExecutionSettings() {
 };
 
 AddPluginsToKernel(kernel);
+AddFiltersToKernel(kernel);
 
 var history = new ChatHistory();
 
@@ -61,5 +62,12 @@ void AddPluginsToKernel(Kernel kernel)
 
     // var wolframAlphaPlugin = new WolframAlpha(kernel);
     // kernel.Plugins.AddFromObject(wolframAlphaPlugin, "WolframAlpha");
-    kernel.Plugins.AddFromType<StringUtilities>();
+    // kernel.Plugins.AddFromType<StringUtilities>();
+    kernel.Plugins.AddFromType<Emotions>();
 }
+
+void AddFiltersToKernel(Kernel kernel)
+{
+    kernel.FunctionInvocationFilters.Add(new EmotionFilter());
+}
+
