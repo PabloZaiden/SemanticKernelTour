@@ -47,4 +47,5 @@ do {
 void AddPluginsToKernel(Kernel kernel)
 {
     kernel.Plugins.AddFromType<UserContextData>();
+    kernel.Plugins.AddFromType<Weather>();
 }
