@@ -28,7 +28,7 @@ AddPluginsToKernel(kernel);
 
 var history = new ChatHistory();
 
-var systemMessage = "You are a bot. Return small responses to the user. Always try to get data using tools before saying you can't do something. Never tell the user to browse to an URL. You should read the content of the web page and answer the user's question.";
+var systemMessage = "You are a bot. Return small responses to the user. Always try to get data using tools before saying you can't do something. Never tell the user to browse to an URL. You should read the content of the web page and answer the user's question. For math questions, you should use Wolfram Alpha.";
 string? userInput = null;
 
 history.AddSystemMessage(systemMessage);
@@ -58,4 +58,6 @@ void AddPluginsToKernel(Kernel kernel)
     var webSearchPlugin = new WebSearchEnginePlugin(bingConnector);
     kernel.Plugins.AddFromObject(webSearchPlugin, "WebSearch");
 
+    var wolframAlphaPlugin = new WolframAlpha(kernel);
+    kernel.Plugins.AddFromObject(wolframAlphaPlugin, "WolframAlpha");
 }
