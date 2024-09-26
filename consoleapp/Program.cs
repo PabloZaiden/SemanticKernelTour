@@ -4,7 +4,10 @@ using Microsoft.Extensions.Logging;
 using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 using Microsoft.SemanticKernel.Connectors.OpenAI;
+using Microsoft.SemanticKernel.Plugins.Web;
+using Microsoft.SemanticKernel.Plugins.Web.Bing;
 using SemanticKernelTour;
+using SemanticKernelTour.Plugins;
 
 var model = Config.Get("Model");
 var openAIAPIKey = Config.Get("OpenAIAPIKey");
@@ -25,7 +28,7 @@ AddPluginsToKernel(kernel);
 
 var history = new ChatHistory();
 
-var systemMessage = "You are a bot. Return small responses to the user. Always try to get data using tools before saying you can't do something.";
+var systemMessage = "You are a bot. Return small responses to the user. Always try to get data using tools before saying you can't do something. Never tell the user to browse to an URL. You should read the content of the web page and answer the user's question.";
 string? userInput = null;
 
 history.AddSystemMessage(systemMessage);
@@ -48,4 +51,11 @@ void AddPluginsToKernel(Kernel kernel)
 {
     kernel.Plugins.AddFromType<UserContextData>();
     kernel.Plugins.AddFromType<Weather>();
+    kernel.Plugins.AddFromType<WebBrowser>();
+
+    var bingAPIKey = Config.Get("BingAPIKey");
+    var bingConnector = new BingConnector(bingAPIKey);
+    var webSearchPlugin = new WebSearchEnginePlugin(bingConnector);
+    kernel.Plugins.AddFromObject(webSearchPlugin, "WebSearch");
+
 }
