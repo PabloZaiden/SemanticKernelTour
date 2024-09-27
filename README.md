@@ -98,3 +98,49 @@ Show the Emotions plugin and class.
 Show the filter.
 
 Ask it: How do you feel?
+
+## Other topics to mention
+
+- It's not all sunshine and rainbows:
+    - The longer the context, the less effective the LLM will be
+    - Especially important if it's including several available tools
+        - Possible workaround, use a function to make it choose which tools it should have available.
+- OpenAPI based plugins
+    - Provide an openapi definition, and it will import the endpoint as KernelFunctions
+- Multimodal inputs
+    - If the underlying model supports it, you can include pictures in the chat history
+    - A great example is to retrieve context based on what the user is seeing on screen
+        - Downside: it can become really expensive, really fast
+    
+- Memory support
+    - Embeddings based
+    - Several backends (including in-memory for local dev)
+    - Can be used with templates for prompting, to retrieve memory data based on vector proximity:
+        ```csharp
+            var template = @"
+                Information about me, from previous conversations:
+                - {{$fact1}} {{recall $fact1}}
+                - {{$fact2}} {{recall $fact2}}
+                - {{$fact3}} {{recall $fact3}}
+                - {{$fact4}} {{recall $fact4}}
+                - {{$fact5}} {{recall $fact5}}
+                ";
+
+            var arguments = new KernelArguments();
+
+            arguments["fact1"] = "what is my name?";
+            arguments["fact2"] = "where do I live?";
+            arguments["fact3"] = "where is my family from?";
+            arguments["fact4"] = "where have I travelled?";
+            arguments["fact5"] = "what do I do for work?";
+        ```
+
+- Ollama support
+    - Still a work-in-progress
+    - To be really useful, another model with good tools support is needed
+    - Phi3 (or some newer version) will be an ideal candidate
+        - As long as it's a good tool selector, doesn't matter if its a Small Language Model.
+    - When ready, will unlock powerful local-llm scenarios at much cheaper cost
+        - In fact... we could defer the inference to the client browser and the cost goes to $0!
+
+- Several new features coming on Ignite (November 2024)
