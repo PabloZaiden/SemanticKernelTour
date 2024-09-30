@@ -49,6 +49,12 @@ Add plugins to kernel, to be able to invoke the GetCurrentDateAndTime function
 Explain that it's based on the function name and parameter names and types.
 If it's not descriptive enough, you can also add descriptions to the function.
 
+Run it, and ask again: 
+```
+What time is it?
+```
+Now, it should know.
+
 ### step-5
 
 (null)
