@@ -139,7 +139,10 @@ Ask it:
 How do you feel?
 ```
 
-It should open a file with the emotion, in addition to the text response
+It should open a file with the emotion, in addition to the text response.
+
+This is a very naive implementation. However, a more useful use case would be to have systems that invoke functions that can include non-text results, like pictures, diagrams trigger user notifications. For those cases, we could have a specific interface for those types of responses and, if the filter detects something like an `IRenderable` result, it can invoke it's `Render()` method to show it to the user, regardless of the specific response.
+
 
 ## Other topics to mention
 
