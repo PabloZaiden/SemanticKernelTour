@@ -19,6 +19,7 @@ Create new kernel using OpenAI provider
 ### step-2
 
 Create a simple chatbot app.
+
 Test is with:
 ```
 Hi! My name is Pablo
@@ -47,6 +48,7 @@ How should we do to let the LLM use it?
 Add plugins to kernel, to be able to invoke the GetCurrentDateAndTime function
 
 Explain that it's based on the function name and parameter names and types.
+
 If it's not descriptive enough, you can also add descriptions to the function.
 
 Also, we can guide the LLM to use the functions more aggressively in the prompt.
@@ -80,6 +82,7 @@ Show that it chains function calls to retrieve all the data and answer the quest
 ### step-8
 
 Add web search and browsing capabilities.
+
 We can tune the prompt again to make it use its new capabilities before trying to do something else.
 
 Ask:
@@ -94,6 +97,7 @@ Now, it should search the web and navigate websites to find the answer.
 Add Wolfram Alpha plugin, with custom LLM function to read the XML response
 
 Show how the plugin works.
+
 It retrieves the answer from Wolfram Alpha, and the LLM reads the XML response to get the answer.
 
 Ask:
@@ -126,6 +130,7 @@ Now it knows how to answer using the right tool, but with a much cheaper model. 
 `IFunctionInvocationFilter` example, to render specific responses.
 
 Show the Emotions plugin and class.
+
 Show the filter.
 
 Ask it:
