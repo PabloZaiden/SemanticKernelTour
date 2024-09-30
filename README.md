@@ -109,7 +109,7 @@ solve 2x + 3 = 7
 
 Remove all plugins, now the LLM fails to answer: 
 ```
-how many r are there in strawberry
+How many Rs are there in "Ricky’s record rack really rattles when red race cars roar rapidly."
 ```
 
 Show ChatGPT with o1 model. It should be able to answer the question, but it's much more expensive.
@@ -120,7 +120,7 @@ Added plugin with specific ability.
 
 Ask again:
 ```
-how many r are there in strawberry
+How many Rs are there in "Ricky’s record rack really rattles when red race cars roar rapidly."
 ```
 
 Now it knows how to answer using the right tool, but with a much cheaper model. The important thing is for the LLM to know when to use each tool.
