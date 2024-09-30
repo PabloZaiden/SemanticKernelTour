@@ -79,7 +79,8 @@ Show that it chains function calls to retrieve all the data and answer the quest
 
 ### step-8
 
-Add web search and browsing capabilities
+Add web search and browsing capabilities.
+We can tune the prompt again to make it use its new capabilities before trying to do something else.
 
 Ask:
 ```
