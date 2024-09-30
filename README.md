@@ -68,8 +68,10 @@ Add GeoData and Weather functions as plugins
 
 Change log level to information
 
-Now, ask: 
-    What's the weather like in my area?
+Now, ask:
+```
+What's the weather like in my area?
+```
 
 Show that it chains function calls to retrieve all the data and answer the question.
 
@@ -78,7 +80,9 @@ Show that it chains function calls to retrieve all the data and answer the quest
 Add web search and browsing capabilities
 
 Ask:
-    Give me the latest news from where I live.
+```
+Give me the latest news from where I live.
+```
     
 Now, it should search the web and navigate websites to find the answer.
 
@@ -89,26 +93,44 @@ Add Wolfram Alpha plugin, with custom LLM function to read the XML response
 Show how the plugin works.
 It retrieves the answer from Wolfram Alpha, and the LLM reads the XML response to get the answer.
 
-Ask it to solve: 2x + 3 = 7
+Ask:
+```
+solve 2x + 3 = 7
+```
 
 ### step-10
 
-Remove all plugins, now the LLM fails to answer "how many r are there in strawberry"
+Remove all plugins, now the LLM fails to answer: 
+```
+how many r are there in strawberry
+```
 
 Show ChatGPT with o1 model. It should be able to answer the question, but it's much more expensive.
 
 ### step-11
 
-Added plugin with specific ability. Now it knows how to answer using the right tool, but with a much cheaper model. The important thing is for the LLM to know when to use each tool.
+Added plugin with specific ability. 
+
+Ask again:
+```
+how many r are there in strawberry
+```
+
+Now it knows how to answer using the right tool, but with a much cheaper model. The important thing is for the LLM to know when to use each tool.
 
 ### step-12
 
-IFunctionInvocationFilter example, to render specific responses.
+`IFunctionInvocationFilter` example, to render specific responses.
 
 Show the Emotions plugin and class.
 Show the filter.
 
-Ask it: How do you feel?
+Ask it:
+```
+How do you feel?
+```
+
+It should open a file with the emotion, in addition to the text response
 
 ## Other topics to mention
 
