@@ -127,6 +127,7 @@ Now it knows how to answer using the right tool, but with a much cheaper model. 
 
 ### step-12
 
+Let's say we want to trigger external actions, based on the results coming from functions invoked by the LLMs
 `IFunctionInvocationFilter` example, to render specific responses.
 
 Show the Emotions plugin and class.
