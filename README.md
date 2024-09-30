@@ -20,12 +20,17 @@ Create new kernel using OpenAI provider
 
 Create a simple chatbot app.
 Test is with:
-    Hi! My name is Pablo
-    What's my name?
+```
+Hi! My name is Pablo
+What's my name?
+```
 
 To show context and history.
 
-Then, ask: What's the weather like in my area?
+Then, ask: 
+```
+What time is it?
+```
 
 It shouldn't know.
 
