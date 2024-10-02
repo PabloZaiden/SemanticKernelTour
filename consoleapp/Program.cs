@@ -11,10 +11,19 @@ using SemanticKernelTour.Plugins;
 
 var model = Config.Get("Model");
 var openAIAPIKey = Config.Get("OpenAIAPIKey");
+var openAIEndpoint = Config.GetOptional("OpenAIEndpoint");
 
 var builder = Kernel.CreateBuilder();
 
-builder.AddOpenAIChatCompletion(model, openAIAPIKey);
+if (openAIEndpoint != null)
+{
+    builder.AddAzureOpenAIChatCompletion(model, openAIEndpoint, openAIAPIKey);
+}
+else
+{
+    builder.AddOpenAIChatCompletion(model, openAIAPIKey);
+}
+
 builder.Services.AddLogging(services => services.AddConsole().SetMinimumLevel(LogLevel.Information));
 
 var kernel = builder.Build();
