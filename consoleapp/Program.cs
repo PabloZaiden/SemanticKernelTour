@@ -6,10 +6,20 @@ using SemanticKernelTour;
 
 var model = Config.Get("Model");
 var openAIAPIKey = Config.Get("OpenAIAPIKey");
+var openAIEndpoint = Config.GetOptional("OpenAIEndpoint");
 
 var builder = Kernel.CreateBuilder();
 
-builder.AddOpenAIChatCompletion(model, openAIAPIKey);
+if (openAIEndpoint != null)
+{
+    var endpoint = new Uri(openAIEndpoint);
+    builder.AddOpenAIChatCompletion(model, endpoint, openAIAPIKey);
+}
+else
+{
+    builder.AddOpenAIChatCompletion(model, openAIAPIKey);
+}
+
 builder.Services.AddLogging(services => services.AddConsole().SetMinimumLevel(LogLevel.Trace));
 
 var kernel = builder.Build();
