@@ -12,8 +12,7 @@ var builder = Kernel.CreateBuilder();
 
 if (openAIEndpoint != null)
 {
-    var endpoint = new Uri(openAIEndpoint);
-    builder.AddOpenAIChatCompletion(model, endpoint, openAIAPIKey);
+    builder.AddAzureOpenAIChatCompletion(model, openAIEndpoint, openAIAPIKey);
 }
 else
 {
