@@ -20,6 +20,6 @@ else
     builder.AddOpenAIChatCompletion(model, openAIAPIKey);
 }
 
-builder.Services.AddLogging(services => services.AddConsole().SetMinimumLevel(LogLevel.Trace));
+builder.Services.AddLogging(services => services.AddConsole().SetMinimumLevel(LogLevel.None));
 
 var kernel = builder.Build();
