@@ -26,4 +26,9 @@ public static class Config
 
         return val;
     }
+
+    public static string? GetOptional(string key)
+    {
+        return _configuration[key];
+    }
 }
