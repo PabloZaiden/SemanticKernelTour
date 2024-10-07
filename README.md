@@ -64,6 +64,7 @@ Now, it should know.
 (null)
 
 ### step-6
+
 Now, let's add some more plugins to the kernel with different capabilities.
 
 Add GeoData and Weather functions as plugins
@@ -128,7 +129,8 @@ Now it knows how to answer using the right tool, but with a much cheaper model. 
 ### step-12
 
 Let's say we want to trigger external actions, based on the results coming from functions invoked by the LLMs
-`IFunctionInvocationFilter` example, to render specific responses.
+
+Show `IFunctionInvocationFilter` example, to render specific responses.
 
 Show the Emotions plugin and class.
 
@@ -141,7 +143,7 @@ How do you feel?
 
 It should open a file with the emotion, in addition to the text response.
 
-This is a very naive implementation. However, a more useful use case would be to have systems that invoke functions that can include non-text results, like pictures, diagrams trigger user notifications. For those cases, we could have a specific interface for those types of responses and, if the filter detects something like an `IRenderable` result, it can invoke it's `Render()` method to show it to the user, regardless of the specific response.
+This is a very naive implementation. However, a more useful use case would be to have systems that invoke functions that can include non-text results, like pictures, diagrams or trigger user notifications. For those cases, we could have a specific interface for those types of responses and, if the filter detects something like an `IRenderable` result, it can invoke it's `Render()` method to show it to the user, regardless of the specific response.
 
 
 ## Other topics to mention
