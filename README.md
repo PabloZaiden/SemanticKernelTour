@@ -145,6 +145,10 @@ It should open a file with the emotion, in addition to the text response.
 
 This is a very naive implementation. However, a more useful use case would be to have systems that invoke functions that can include non-text results, like pictures, diagrams or trigger user notifications. For those cases, we could have a specific interface for those types of responses and, if the filter detects something like an `IRenderable` result, it can invoke it's `Render()` method to show it to the user, regardless of the specific response.
 
+This kind of filters can help us avoid _json begging_:
+
+![372696057-ad08f9d3-9e7e-4577-93e1-37ae420935f6](https://github.com/user-attachments/assets/bdf9bc33-b776-4412-8352-52911ba8c992)
+
 
 ## Other topics to mention
 
